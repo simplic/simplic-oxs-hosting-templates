@@ -1,2 +1,12 @@
-# simplic-oxs-hosting-templates
-Contains a set of simplic-oxs hosting templates. This templates should be used for development, staging and production systems.
+# Simplic.OxS/Simplic.Ox hosting templates
+
+This repository contains templates and ready-made solution for deploying Simplic.OxS and Simplic.Ox. Scripts are provided for hosting via.
+
+* Docker (single services)
+* Docker Compose (dev, staging, small environments)
+* Kubernetes Deployment (Large Environments/High Availability)
+
+
+## Getting started
+
+Before getting started with Simplic.OxS, you need to get access to the simplic docker repository. Please contact us for further information [mailto:post@simplic.biz](post@simplic.biz)
