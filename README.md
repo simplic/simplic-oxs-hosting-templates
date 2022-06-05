@@ -9,4 +9,4 @@ This repository contains templates and ready-made solution for deploying Simplic
 
 ## Getting started
 
-Before getting started with Simplic.OxS, you need to get access to the simplic docker repository. Please contact us for further information [mailto:post@simplic.biz](post@simplic.biz)
+Before getting started with Simplic.OxS, you need to get access to the simplic docker repository. Please contact us for further information [post@simplic.biz](mailto:post@simplic.biz)
