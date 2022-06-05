@@ -1,0 +1,57 @@
+version: '3.7'
+
+volumes:  
+    mongodb-data: {}
+    redis-data: {}
+    clickhouse-data: {}
+
+services:
+  # Main MongoDb
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    hostname: mongodb
+    environment:
+      -  'MONGODB_USER=user' 
+      -  'MONGODB_PASS=password!'
+    volumes:
+      - 'mongodb-data:/data/db'
+    ports:
+      - '27017:27017'
+    command: mongod
+    networks:
+      - backend
+
+  redis:
+    image: redis:6.2-alpine
+    restart: always
+    ports:
+      - '6379:6379'
+    command: redis-server --save 20 1 --loglevel warning
+    volumes: 
+      - redis-data:/data
+    networks:
+      - backend
+
+  clickhouse:
+    image: yandex/clickhouse-server:21.12.4.1
+    hostname: clickhouse
+    # ports:
+    # - "9000:9000"
+    # - "8123:8123"
+    volumes:
+      - ./config/clickhouse-config.xml:/etc/clickhouse-server/config.xml
+      - clickhouse-data:/var/lib/clickhouse/
+    restart: on-failure
+    logging:
+      options:
+        max-size: 50m
+        max-file: "3"
+    healthcheck:
+      # "clickhouse", "client", "-u ${CLICKHOUSE_USER}", "--password ${CLICKHOUSE_PASSWORD}", "-q 'SELECT 1'"
+      test: ["CMD", "wget", "--spider", "-q", "localhost:8123/ping"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    networks:
+      - backend
