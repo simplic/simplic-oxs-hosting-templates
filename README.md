@@ -13,11 +13,11 @@ Before getting started with Simplic.OxS, you need to get access to the simplic d
 
 ### Login into simplic Azure Container Registry (acr)
 
-First you need to login into azure.
+First you need to login into azure. Make sure, "azure powershell" is installed: https://docs.microsoft.com/de-de/powershell/azure/install-az-ps?view=azps-8.0.0
 
 > $ az login
 
-Than connect to az acr
+Then connect to az acr
 
 > $ az acr login simplic
 
@@ -44,4 +44,4 @@ If you want to start the infrastructure using docker-compose, just go the the do
 #### Stop docker-compose
 
 If you want to stop the docker-compose infrastructure, execute `.\\down.cmd`. If docker-compose is running in none-deamon mode,
-you can cancel everything using `Strg + C`.
+you can cancel everything using `Ctrl + C`.
