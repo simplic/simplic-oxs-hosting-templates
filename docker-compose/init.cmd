@@ -1,0 +1,1 @@
+copy /y docker-compose.custom.template docker-compose.custom.yml
