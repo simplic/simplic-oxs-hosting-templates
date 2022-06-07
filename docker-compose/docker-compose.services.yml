@@ -1,24 +1,6 @@
 version: '3.7'
 
 services:
-  simplic_auth:
-    image: 'simplic.oxs.auth:local'
-    container_name: simplic_auth
-    hostname: 'simplic_auth'
-    ports:
-      - '8086:80'
-    labels:
-      NAME: 'simplic_auth'
-    depends_on:
-       - mongodb
-       - rabbitmq
-       - otel-collector
-    environment:
-       - ASPNETCORE_ENVIRONMENT=Development
-    networks:
-      - backend
-      - frontend
-
   simplic_mail:
     image: 'simplic.azurecr.io/simplic-oxs-mail:latest'
     container_name: simplic_mail
