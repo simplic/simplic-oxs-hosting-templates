@@ -10,3 +10,17 @@ This repository contains templates and ready-made solution for deploying Simplic
 ## Getting started
 
 Before getting started with Simplic.OxS, you need to get access to the simplic docker repository. Please contact us for further information [post@simplic.biz](mailto:post@simplic.biz)
+
+### Login into simplic Azure Conterin Registry (acr)
+
+First you need to login into azure.
+
+> $ az login
+
+Than connect to az acr
+
+> $ az acr login simplic
+
+## Docker compose
+
+> Start init.cmd for the first execution
