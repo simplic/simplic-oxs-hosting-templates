@@ -3,3 +3,16 @@ version: '3.7'
 networks:
   frontend:
   backend:
+
+services:
+  haproxy:
+    image: haproxy:alpine
+    container_name: haproxy
+    restart: always
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./config:/usr/local/etc/haproxy
+    networks:
+      - frontend
+      - backend
