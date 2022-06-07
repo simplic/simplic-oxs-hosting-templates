@@ -1,1 +1,1 @@
-copy /y docker-compose.custom.template docker-compose.custom.yml
+copy docker-compose.custom.template docker-compose.custom.yml

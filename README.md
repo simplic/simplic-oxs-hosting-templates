@@ -23,4 +23,25 @@ Than connect to az acr
 
 ## Docker compose
 
+If you are using the docker-compose hosting templates, please execute the init.cmd before starting the services.
+
 > Start init.cmd for the first execution
+
+**Service overview**
+
+* Simplic.Ox: http://localhost:8081/
+* SigNoz: http://localhost:3301/
+* APIs: http://localhost:8080/v1/{service-name}-api/swagger
+
+`{service-name}` must be replaced with the service name, e.g.: `auth`, `mail`, ...
+
+The routing will be done by the `haProxy` that is delivery with the templates. New services might be added to the `haProxy.cfg`.
+
+### Start docker-compose
+
+If you want to start the infrastructure using docker-compose, just go the the docker-compose directory and execute `.\\up.cmd`
+
+#### Stop docker-compose
+
+If you want to stop the docker-compose infrastructure, execute `.\\down.cmd`. If docker-compose is running in none-deamon mode,
+you can cancel everything using `Strg + C`.
