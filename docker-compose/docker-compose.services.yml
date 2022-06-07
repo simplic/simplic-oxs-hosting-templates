@@ -18,3 +18,21 @@ services:
     networks:
       - backend
       - frontend
+
+  simplic_mail:
+    image: 'simplic.azurecr.io/simplic-oxs-mail:latest'
+    container_name: simplic_mail
+    hostname: 'simplic_mail'
+    ports:
+      - '8085:80'
+    labels:
+      NAME: 'simplic_mail'
+    depends_on:
+       - mongodb
+       - rabbitmq
+       - otel-collector
+    environment:
+       - ASPNETCORE_ENVIRONMENT=Development
+    networks:
+      - backend
+      - frontend
