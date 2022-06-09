@@ -45,7 +45,7 @@ If you want to start the infrastructure using docker-compose, just go the the do
 
 #### Stop docker-compose
 
-If you want to stop the docker-compose infrastructure, execute `.\\down.cmd`. If docker-compose is running in none-deamon mode,
+If you want to stop the docker-compose infrastructure, execute `.\\down.cmd`. If docker-compose is running in none-detach mode,
 you can cancel everything using `Ctrl + C`.
 
 ### Add a new Simplic.OxS-Service to the template
