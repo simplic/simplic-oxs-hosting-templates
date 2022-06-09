@@ -41,6 +41,8 @@ The routing will be done by the `haProxy` that is delivery with the templates. N
 
 If you want to start the infrastructure using docker-compose, just go the the docker-compose directory and execute `.\\up.cmd`
 
+> Important! `:latest` images will only be updated, when adding the argument `pull`. E.g.: `.\\up.cmd pull`.
+
 #### Stop docker-compose
 
 If you want to stop the docker-compose infrastructure, execute `.\\down.cmd`. If docker-compose is running in none-deamon mode,

@@ -1,5 +1,7 @@
 REM Pull all images with :latest or a specific tag
-docker-compose pull
+if "%1" == "pull" (
+    docker-compose pull
+)
 
 docker-compose -f docker-compose.yml ^
                -f docker-compose.db.yml ^
