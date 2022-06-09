@@ -19,6 +19,24 @@ services:
       - backend
       - frontend
 
+  simplic_auth:
+    image: 'simplic.azurecr.io/simplic-oxs-auth:latest'
+    container_name: simplic_auth
+    hostname: 'simplic_auth'
+    ports:
+      - '8084:80'
+    labels:
+      NAME: 'simplic_auth'
+    depends_on:
+       - mongodb
+       - rabbitmq
+       - otel-collector
+    environment:
+       - ASPNETCORE_ENVIRONMENT=Development
+    networks:
+      - backend
+      - frontend
+
   simplic_member:
     image: 'simplic.azurecr.io/simplic-oxs-member:latest'
     container_name: simplic_member
