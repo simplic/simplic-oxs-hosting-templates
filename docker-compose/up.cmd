@@ -1,3 +1,6 @@
+REM Pull all images with :latest or a specific tag
+docker-compose pull
+
 docker-compose -f docker-compose.yml ^
                -f docker-compose.db.yml ^
                -f docker-compose.message_broker.yml ^
