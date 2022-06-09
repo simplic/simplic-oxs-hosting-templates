@@ -19,7 +19,7 @@ First you need to login into azure. Make sure, "azure powershell" is installed: 
 
 Then connect to az acr
 
-> $ az acr login simplic
+> $ az acr login --name simplic
 
 ## Docker compose
 

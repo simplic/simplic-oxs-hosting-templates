@@ -6,9 +6,27 @@ services:
     container_name: simplic_mail
     hostname: 'simplic_mail'
     ports:
-      - '8085:80'
+      - '8086:80'
     labels:
       NAME: 'simplic_mail'
+    depends_on:
+       - mongodb
+       - rabbitmq
+       - otel-collector
+    environment:
+       - ASPNETCORE_ENVIRONMENT=Development
+    networks:
+      - backend
+      - frontend
+
+  simplic_member:
+    image: 'simplic.azurecr.io/simplic-oxs-member:latest'
+    container_name: simplic_member
+    hostname: 'simplic_member'
+    ports:
+      - '8085:80'
+    labels:
+      NAME: 'simplic_member'
     depends_on:
        - mongodb
        - rabbitmq
