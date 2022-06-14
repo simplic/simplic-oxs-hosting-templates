@@ -17,7 +17,7 @@ services:
       - frontend
 
   signoz:
-    image: signoz/frontend:0.8.0
+    image: signoz/frontend:0.8.1
     container_name: signoz
     hostname: signoz
     restart: on-failure

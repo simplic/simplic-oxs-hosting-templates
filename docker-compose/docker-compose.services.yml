@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   simplic_mail:
-    image: 'simplic.azurecr.io/simplic-oxs-mail:latest'
+    image: '${simplic_mail_image}'
     container_name: simplic_mail
     hostname: 'simplic_mail'
     ports:
@@ -15,12 +15,13 @@ services:
        - otel-collector
     environment:
        - ASPNETCORE_ENVIRONMENT=Development
+       - Mailing__SendInBlueKey=${api_key_send_in_blue}
     networks:
       - backend
       - frontend
 
   simplic_auth:
-    image: 'simplic.azurecr.io/simplic-oxs-auth:latest'
+    image: '${simplic_auth_image}'
     container_name: simplic_auth
     hostname: 'simplic_auth'
     ports:
@@ -38,7 +39,7 @@ services:
       - frontend
 
   simplic_member:
-    image: 'simplic.azurecr.io/simplic-oxs-member:latest'
+    image: '${simplic_member_image}'
     container_name: simplic_member
     hostname: 'simplic_member'
     ports:
