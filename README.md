@@ -27,6 +27,13 @@ If you are using the docker-compose hosting templates, please execute the init.c
 
 > Start init.cmd for the first execution
 
+*Env file*
+
+When executing the init.cmd file, a `.env.dev` file will be created. For overriding settings and setting API keys,
+use that file.
+
+> Troubleshooting: Compare `.env.dev.template` with your actual `.env.dev` file, if some services or images are missing.
+
 **Service overview**
 
 * Simplic.Ox: http://localhost:8081/
