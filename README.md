@@ -57,6 +57,5 @@ you can cancel everything using `Ctrl + C`.
 
 ### Add a new Simplic.OxS-Service to the template
 
-```yml
-
-```
+1. Create new asp.net core project in a new solution. Naming convention: `Simplic.OxS.<ServiceName>.Server`. Solution name: `simplic-oxs-<service-name>`.
+2. Reference Simplic.OxS.Server using nuget
