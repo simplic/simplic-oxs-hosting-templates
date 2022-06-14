@@ -17,6 +17,6 @@ docker-compose -f docker-compose.yml ^
                -f docker-compose.services.yml ^
                -f docker-compose.frontend.yml ^
                -f docker-compose.custom.yml ^
-               --env-file ./config/.env.dev up
+               --env-file .env.dev up
 
 REM `docker-compose.custom.yml` must always be the last file, because it will override other settings   
