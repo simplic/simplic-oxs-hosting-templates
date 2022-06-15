@@ -7,7 +7,7 @@ if "%1" == "pull" (
                    -f docker-compose.services.yml ^
                    -f docker-compose.frontend.yml ^
                    -f docker-compose.custom.yml ^
-                   pull
+                   --env-file .env.dev pull
 )
 
 docker-compose -f docker-compose.yml ^
