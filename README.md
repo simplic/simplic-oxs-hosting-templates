@@ -38,7 +38,7 @@ use that file.
 
 * Simplic.Ox: http://localhost:8081/
 * SigNoz: http://localhost:3301/
-* APIs: http://localhost:8080/v1/{service-name}-api/swagger
+* APIs: http://localhost:8080/{service-name}-api/v1/swagger
 
 `{service-name}` must be replaced with the service name, e.g.: `auth`, `mail`, ...
 
