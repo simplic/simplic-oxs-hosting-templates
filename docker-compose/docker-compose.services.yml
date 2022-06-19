@@ -55,3 +55,22 @@ services:
     networks:
       - backend
       - frontend
+
+  simplic_organization:
+    image: '${simplic_organization_image}'
+    container_name: simplic_organization
+    hostname: 'simplic_organization'
+    ports:
+      - '8087:80'
+    labels:
+      NAME: 'simplic_organization'
+    depends_on:
+       - mongodb
+       - rabbitmq
+       - otel-collector
+    environment:
+       - ASPNETCORE_ENVIRONMENT=Development
+    networks:
+      - backend
+      - frontend
+
