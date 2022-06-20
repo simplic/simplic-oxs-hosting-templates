@@ -74,3 +74,20 @@ services:
       - backend
       - frontend
 
+  simplic_oxbase:
+    image: '${simplic_oxbase_image}'
+    container_name: simplic_oxbase
+    hostname: 'simplic_oxbase'
+    ports:
+      - '8088:80'
+    labels:
+      NAME: 'simplic_oxbase'
+    depends_on:
+       - mongodb
+       - rabbitmq
+       - otel-collector
+    environment:
+       - ASPNETCORE_ENVIRONMENT=Development
+    networks:
+      - backend
+      - frontend
