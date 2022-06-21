@@ -91,3 +91,21 @@ services:
     networks:
       - backend
       - frontend
+
+  simplic_erp:
+    image: '${simplic_erp_image}'
+    container_name: simplic_erp
+    hostname: 'simplic_erp'
+    ports:
+      - '8089:80'
+    labels:
+      NAME: 'simplic_erp'
+    depends_on:
+       - mongodb
+       - rabbitmq
+       - otel-collector
+    environment:
+       - ASPNETCORE_ENVIRONMENT=Development
+    networks:
+      - backend
+      - frontend
