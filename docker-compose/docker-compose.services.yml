@@ -91,3 +91,21 @@ services:
     networks:
       - backend
       - frontend
+
+  simplic_contact:
+    image: '${simplic_contact_image}'
+    container_name: simplic_contact
+    hostname: 'simplic_contact'
+    ports:
+      - '8089:80'
+    labels:
+      NAME: 'simplic_contact'
+    depends_on:
+       - mongodb
+       - rabbitmq
+       - otel-collector
+    environment:
+       - ASPNETCORE_ENVIRONMENT=Development
+    networks:
+      - backend
+      - frontend
