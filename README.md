@@ -11,15 +11,14 @@ This repository contains templates and ready-made solution for deploying Simplic
 
 Before getting started with Simplic.OxS, you need to get access to the simplic docker repository. Please contact us for further information [post@simplic.biz](mailto:post@simplic.biz)
 
-### Login into simplic Azure Container Registry (acr)
+### Setup aws cli and aws ecr
 
-First you need to login into azure. Make sure, "azure powershell" is installed: https://docs.microsoft.com/de-de/powershell/azure/install-az-ps?view=azps-8.0.0
+1. Retrieve aws `access key id` and `secred access key` from your system administrator
+2. Install aws cli [download cli](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+3. Setup your configuration by calling `aws configure`. Default region should be `eu-central-1` / Default output format `yaml`
+4. Login to the aws ecr `aws ecr get-login-password --region eu-central-1| docker login --username AWS --password-stdin 217954882364.dkr.ecr.eu-central-1.amazonaws.com`
 
-> $ az login
-
-Then connect to az acr
-
-> $ az acr login --name simplic
+> Important! After a few hours you might need to login again into the ecr and execute the 4th step again.
 
 ## Docker compose
 
