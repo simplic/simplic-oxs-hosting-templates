@@ -139,7 +139,7 @@ services:
     container_name: simplic_logistics
     hostname: 'simplic_logistics'
     ports:
-      - '8090:80'
+      - '8092:80'
     labels:
       NAME: 'simplic_logistics'
     depends_on:
