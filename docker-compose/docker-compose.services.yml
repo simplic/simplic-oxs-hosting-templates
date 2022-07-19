@@ -134,4 +134,24 @@ services:
       - backend
       - frontend
 
+  simplic_contract:
+      image: '${simplic_contract_image}'
+      container_name: simplic_contract
+      hostname: 'simplic_contract'
+      ports:
+        - '8092:80'
+      labels:
+        NAME: 'simplic_contract'
+      depends_on:
+        - mongodb
+        - rabbitmq
+        - otel-collector
+      environment:
+        - ASPNETCORE_ENVIRONMENT=Development
+        - InternalHosts__auth=${internal_hosts_auth}
+        - InternalHosts__organization=${internal_hosts_organization}
+      networks:
+        - backend
+        - frontend
+
 
