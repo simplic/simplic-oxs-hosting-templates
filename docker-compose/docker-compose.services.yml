@@ -154,4 +154,22 @@ services:
         - backend
         - frontend
 
-
+  simplic_construction_site:
+      image: '${simplic_construction_site_image}'
+      container_name: simplic_construction_site
+      hostname: 'simplic_construction_site'
+      ports:
+        - '8093:80'
+      labels:
+        NAME: 'simplic_construction_site'
+      depends_on:
+        - mongodb
+        - rabbitmq
+        - otel-collector
+      environment:
+        - ASPNETCORE_ENVIRONMENT=Development
+        - InternalHosts__auth=${internal_hosts_auth}
+        - InternalHosts__organization=${internal_hosts_organization}
+      networks:
+        - backend
+        - frontend
