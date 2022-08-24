@@ -173,3 +173,23 @@ services:
       networks:
         - backend
         - frontend
+
+  simplic_taskboard:
+      image: '${simplic_taskboard_image}'
+      container_name: simplic_taskboard
+      hostname: 'simplic_taskboard'
+      ports:
+        - '8094:80'
+      labels:
+        NAME: 'simplic_taskboard'
+      depends_on:
+        - mongodb
+        - rabbitmq
+        - otel-collector
+      environment:
+        - ASPNETCORE_ENVIRONMENT=Development
+        - InternalHosts__auth=${internal_hosts_auth}
+        - InternalHosts__organization=${internal_hosts_organization}
+      networks:
+        - backend
+        - frontend
