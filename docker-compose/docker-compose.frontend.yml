@@ -3,7 +3,7 @@ version: '3.7'
 services:
 
   simplic_ox:
-    image: 'simplic.azurecr.io/simplic-ox:latest'
+    image: '${simplic_ox_image}'
     container_name: simplic_ox
     hostname: 'simplic_ox'
     ports:
