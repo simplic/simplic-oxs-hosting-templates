@@ -134,12 +134,71 @@ services:
       - backend
       - frontend
 
+  simplic_contract:
+      image: '${simplic_contract_image}'
+      container_name: simplic_contract
+      hostname: 'simplic_contract'
+      ports:
+        - '8092:80'
+      labels:
+        NAME: 'simplic_contract'
+      depends_on:
+        - mongodb
+        - rabbitmq
+        - otel-collector
+      environment:
+        - ASPNETCORE_ENVIRONMENT=Development
+        - InternalHosts__auth=${internal_hosts_auth}
+        - InternalHosts__organization=${internal_hosts_organization}
+      networks:
+        - backend
+        - frontend
+
+  simplic_construction_site:
+      image: '${simplic_construction_site_image}'
+      container_name: simplic_construction_site
+      hostname: 'simplic_construction_site'
+      ports:
+        - '8093:80'
+      labels:
+        NAME: 'simplic_construction_site'
+      depends_on:
+        - mongodb
+        - rabbitmq
+        - otel-collector
+      environment:
+        - ASPNETCORE_ENVIRONMENT=Development
+        - InternalHosts__auth=${internal_hosts_auth}
+        - InternalHosts__organization=${internal_hosts_organization}
+      networks:
+        - backend
+        - frontend
+
+  simplic_taskboard:
+      image: '${simplic_taskboard_image}'
+      container_name: simplic_taskboard
+      hostname: 'simplic_taskboard'
+      ports:
+        - '8094:80'
+      labels:
+        NAME: 'simplic_taskboard'
+      depends_on:
+        - mongodb
+        - rabbitmq
+        - otel-collector
+      environment:
+        - ASPNETCORE_ENVIRONMENT=Development
+        - InternalHosts__auth=${internal_hosts_auth}
+        - InternalHosts__organization=${internal_hosts_organization}
+      networks:
+        - backend
+        - frontend
   simplic_logistics:
     image: '${simplic_logistics_image}'
     container_name: simplic_logistics
     hostname: 'simplic_logistics'
     ports:
-      - '8092:80'
+      - '8095:80'
     labels:
       NAME: 'simplic_logistics'
     depends_on:
