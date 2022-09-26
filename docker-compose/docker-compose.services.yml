@@ -94,6 +94,15 @@ services:
       - backend
       - frontend
 
+  simplic_erp:
+    image: '${simplic_erp_image}'
+    container_name: simplic_erp
+    hostname: 'simplic_erp'
+    ports:
+      - '8089:80'
+    labels:
+      NAME: 'simplic_erp'
+
   simplic_timeslot:
     image: '${simplic_timeslot_image}'
     container_name: simplic_timeslot
@@ -201,6 +210,7 @@ services:
       - '8095:80'
     labels:
       NAME: 'simplic_logistics'
+
     depends_on:
        - mongodb
        - rabbitmq
