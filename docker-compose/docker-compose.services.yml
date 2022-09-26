@@ -193,3 +193,20 @@ services:
       networks:
         - backend
         - frontend
+  simplic_logistics:
+    image: '${simplic_logistics_image}'
+    container_name: simplic_logistics
+    hostname: 'simplic_logistics'
+    ports:
+      - '8095:80'
+    labels:
+      NAME: 'simplic_logistics'
+    depends_on:
+       - mongodb
+       - rabbitmq
+       - otel-collector
+    environment:
+       - ASPNETCORE_ENVIRONMENT=Development
+    networks:
+      - backend
+      - frontend
