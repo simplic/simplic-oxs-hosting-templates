@@ -94,25 +94,7 @@ services:
       - backend
       - frontend
 
-  simplic_timeslot:
-    image: '${simplic_timeslot_image}'
-    container_name: simplic_timeslot
-    hostname: 'simplic_timeslot'
-    ports:
-      - '8090:80'
-    labels:
-      NAME: 'simplic_timeslot'
-    depends_on:
-       - mongodb
-       - rabbitmq
-       - otel-collector
-    environment:
-       - ASPNETCORE_ENVIRONMENT=Development
-       - InternalHosts__auth=${internal_hosts_auth}
-       - InternalHosts__organization=${internal_hosts_organization}
-    networks:
-      - backend
-      - frontend
+
 
   simplic_contact:
     image: '${simplic_contact_image}'
