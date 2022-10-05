@@ -202,6 +202,7 @@ services:
       networks:
         - backend
         - frontend
+        
   simplic_logistics:
     image: '${simplic_logistics_image}'
     container_name: simplic_logistics
@@ -211,6 +212,15 @@ services:
     labels:
       NAME: 'simplic_logistics'
 
+  
+  simplic_datahub:
+    image: '${simplic_datahub_image}'
+    container_name: simplic_datahub
+    hostname: 'simplic_datahub'
+    ports:
+      - '8096:80'
+    labels:
+      NAME: 'simplic_datahub'
     depends_on:
        - mongodb
        - rabbitmq
