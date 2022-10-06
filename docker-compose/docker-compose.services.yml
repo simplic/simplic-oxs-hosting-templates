@@ -102,6 +102,15 @@ services:
       - '8089:80'
     labels:
       NAME: 'simplic_erp'
+    depends_on:
+       - mongodb
+       - rabbitmq
+       - otel-collector
+    environment:
+       - ASPNETCORE_ENVIRONMENT=Development
+    networks:
+      - backend
+      - frontend
 
   simplic_timeslot:
     image: '${simplic_timeslot_image}'
@@ -202,6 +211,7 @@ services:
       networks:
         - backend
         - frontend
+        
   simplic_logistics:
     image: '${simplic_logistics_image}'
     container_name: simplic_logistics
@@ -210,7 +220,25 @@ services:
       - '8095:80'
     labels:
       NAME: 'simplic_logistics'
+    depends_on:
+       - mongodb
+       - rabbitmq
+       - otel-collector
+    environment:
+       - ASPNETCORE_ENVIRONMENT=Development
+    networks:
+      - backend
+      - frontend
 
+  
+  simplic_datahub:
+    image: '${simplic_datahub_image}'
+    container_name: simplic_datahub
+    hostname: 'simplic_datahub'
+    ports:
+      - '8096:80'
+    labels:
+      NAME: 'simplic_datahub'
     depends_on:
        - mongodb
        - rabbitmq
