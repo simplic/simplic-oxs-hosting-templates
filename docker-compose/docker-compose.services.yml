@@ -248,3 +248,39 @@ services:
     networks:
       - backend
       - frontend
+
+  simplic_article:
+    image: '${simplic_article_image}'
+    container_name: simplic_article
+    hostname: 'simplic_article'
+    ports:
+      - '8097:80'
+    labels:
+      NAME: 'simplic_article'
+    depends_on:
+       - mongodb
+       - rabbitmq
+       - otel-collector
+    environment:
+       - ASPNETCORE_ENVIRONMENT=Development
+    networks:
+      - backend
+      - frontend
+
+  simplic_quantity_unit:
+    image: '${simplic_article_image}'
+    container_name: simplic_quantity_unit
+    hostname: 'simplic_quantity_unit'
+    ports:
+      - '8098:80'
+    labels:
+      NAME: 'simplic_quantity_unit'
+    depends_on:
+       - mongodb
+       - rabbitmq
+       - otel-collector
+    environment:
+       - ASPNETCORE_ENVIRONMENT=Development
+    networks:
+      - backend
+      - frontend
