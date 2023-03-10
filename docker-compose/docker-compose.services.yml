@@ -266,3 +266,21 @@ services:
     networks:
       - backend
       - frontend
+
+  simplic_cleaning:
+    image: '${simplic_cleaning_image}'
+    container_name: simplic_cleaning
+    hostname: 'simplic_cleaning'
+    ports:
+      - '8098:80'
+    labels:
+      NAME: 'simplic_cleaning'
+    depends_on:
+       - mongodb
+       - rabbitmq
+       - otel-collector
+    environment:
+       - ASPNETCORE_ENVIRONMENT=Development
+    networks:
+      - backend
+      - frontend
