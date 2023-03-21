@@ -290,7 +290,7 @@ services:
     container_name: simplic_devops
     hostname: 'simplic_devops'
     ports:
-      - '8098:80'
+      - '8099:80'
     labels:
       NAME: 'simplic_devops'
     depends_on:
