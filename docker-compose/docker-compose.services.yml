@@ -284,3 +284,21 @@ services:
     networks:
       - backend
       - frontend
+
+  simplic_devops:
+    image: '${simplic_devops_image}'
+    container_name: simplic_devops
+    hostname: 'simplic_devops'
+    ports:
+      - '8098:80'
+    labels:
+      NAME: 'simplic_devops'
+    depends_on:
+       - mongodb
+       - rabbitmq
+       - otel-collector
+    environment:
+       - ASPNETCORE_ENVIRONMENT=Development
+    networks:
+      - backend
+      - frontend
