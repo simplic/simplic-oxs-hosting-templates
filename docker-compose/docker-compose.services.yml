@@ -302,3 +302,21 @@ services:
     networks:
       - backend
       - frontend
+
+  simplic_resource_locking:
+    image: '${simplic_resource_locking_image}'
+    container_name: simplic_resource_locking
+    hostname: 'simplic_resource_locking'
+    ports:
+      - '8100:80'
+    labels:
+      NAME: 'simplic_resource_locking'
+    depends_on:
+       - mongodb
+       - rabbitmq
+       - otel-collector
+    environment:
+       - ASPNETCORE_ENVIRONMENT=Development
+    networks:
+      - backend
+      - frontend
