@@ -1,5 +1,10 @@
 REM Pull all images with :latest or a specific tag
-if "%1" == "pull" (
+
+set do_pull = false
+if "%1" == "pull" set do_pull=true
+if "%1" == "--pull" set do_pull=true
+
+if "%do_pull%" == "true" (
     docker-compose -f docker-compose.yml ^
                    -f docker-compose.db.yml ^
                    -f docker-compose.message_broker.yml ^
