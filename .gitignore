@@ -354,3 +354,5 @@ MigrationBackup/
 docker-compose.custom.yml
 
 .env.dev
+# Synced from simplic-oxs-agent-skill - do not commit.
+.agent-guidelines/
